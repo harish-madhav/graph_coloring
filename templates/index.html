@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="game-container">
+    <div class="header">
+        <h1>Map Coloring Game</h1>
+        <p>Color all regions so that no adjacent regions have the same color!</p>
+    </div>
+
+    <div class="controls">
+        <div class="difficulty-selector">
+            <label for="difficulty">Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+        </div>
+
+        <button id="new-game-btn" class="btn">New Game</button>
+        <button id="hint-btn" class="btn">Get Hint</button>
+    </div>
+
+    <div class="game-status">
+        <div id="message" class="message">Select a difficulty and start a new game!</div>
+    </div>
+
+    <div class="game-board">
+        <div id="map-container"></div>
+        <div id="color-palette" class="color-palette"></div>
+    </div>
+
+    <div class="instructions">
+        <h3>How to Play</h3>
+        <ol>
+            <li>Select a difficulty level and click "New Game"</li>
+            <li>Click on a region to select it</li>
+            <li>Click on a color from the palette to color the selected region</li>
+            <li>Adjacent regions cannot have the same color</li>
+            <li>Color all regions to win!</li>
+        </ol>
+    </div>
+</div>
+
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}
